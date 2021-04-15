@@ -19,6 +19,13 @@ namespace CW_02
 
         private void ShowManageTransactionView(object sender, EventArgs e)
         {
+            TransactionUI transactionUI = new TransactionUI();
+            transactionUI.Activate();
+            transactionUI.ShowDialog();
+        }
+
+        private void ShowManageTransactionPartyView(object sender, EventArgs e)
+        {
             ManageTransactionParty manageTransactionParty = new ManageTransactionParty();
             manageTransactionParty.Activate();
             manageTransactionParty.ShowDialog();

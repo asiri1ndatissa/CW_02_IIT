@@ -29,7 +29,9 @@ namespace CW_02
 
         private void ShowAddTransactionPartyView(object sender, EventArgs e)
         {
-
+            TransactionPartyUI transactionPartyUI = new TransactionPartyUI();
+            transactionPartyUI.Activate();
+            transactionPartyUI.ShowDialog();
         }
     }
 }

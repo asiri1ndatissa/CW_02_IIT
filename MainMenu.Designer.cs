@@ -59,6 +59,7 @@ namespace CW_02
             this.btnManageTransactionParty.TabIndex = 1;
             this.btnManageTransactionParty.Text = "Manage Transaction Party";
             this.btnManageTransactionParty.UseVisualStyleBackColor = false;
+            this.btnManageTransactionParty.Click += new System.EventHandler(this.ShowManageTransactionPartyView);
             // 
             // btnProduceReports
             // 
