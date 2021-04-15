@@ -31,7 +31,7 @@ namespace CW_02
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTransactionParty = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -61,12 +61,12 @@ namespace CW_02
             this.label3.TabIndex = 4;
             this.label3.Text = "Date:";
             // 
-            // dateTimePicker1
+            // dateTransactionParty
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(186, 119);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 5;
+            this.dateTransactionParty.Location = new System.Drawing.Point(186, 119);
+            this.dateTransactionParty.Name = "dateTransactionParty";
+            this.dateTransactionParty.Size = new System.Drawing.Size(200, 20);
+            this.dateTransactionParty.TabIndex = 5;
             // 
             // label2
             // 
@@ -141,12 +141,11 @@ namespace CW_02
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTransactionParty);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Name = "TransactionPartyUI";
             this.Text = "Transaction Party UI";
-            this.Load += new System.EventHandler(this.TransactionPartyUI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,7 +155,7 @@ namespace CW_02
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTransactionParty;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;

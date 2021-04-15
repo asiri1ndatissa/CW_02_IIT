@@ -79,6 +79,7 @@
     <Compile Include="TransactionEntryView.Designer.cs">
       <DependentUpon>TransactionEntryView.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransactionPartyModel.cs" />
     <Compile Include="TransactionPartyUI.cs">
       <SubType>Form</SubType>
     </Compile>
