@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace CW_02
 {
-    public partial class TransactionPartyUI : Form
+    public partial class ProduceReport : Form
     {
-        public TransactionPartyUI()
+        public ProduceReport()
         {
             InitializeComponent();
         }
 
-        private void SubmitTransactionParty(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TransactionPartyUI_Load(object sender, EventArgs e)
+        private void GenerateReport(object sender, EventArgs e)
         {
 
         }

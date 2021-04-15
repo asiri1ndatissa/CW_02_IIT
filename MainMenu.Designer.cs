@@ -71,6 +71,7 @@ namespace CW_02
             this.btnProduceReports.TabIndex = 2;
             this.btnProduceReports.Text = "Produce Reports";
             this.btnProduceReports.UseVisualStyleBackColor = false;
+            this.btnProduceReports.Click += new System.EventHandler(this.ShowProduceReportView);
             // 
             // btnPrediction
             // 

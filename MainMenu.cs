@@ -30,5 +30,12 @@ namespace CW_02
             manageTransactionParty.Activate();
             manageTransactionParty.ShowDialog();
         }
+
+        private void ShowProduceReportView(object sender, EventArgs e)
+        {
+            ProduceReport produceReport = new ProduceReport();
+            produceReport.Activate();
+            produceReport.ShowDialog();
+        }
     }
 }

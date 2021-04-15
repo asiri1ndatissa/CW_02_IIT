@@ -146,6 +146,7 @@ namespace CW_02
             this.Controls.Add(this.label1);
             this.Name = "TransactionPartyUI";
             this.Text = "Transaction Party UI";
+            this.Load += new System.EventHandler(this.TransactionPartyUI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
