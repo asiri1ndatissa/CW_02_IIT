@@ -47,6 +47,7 @@ namespace CW_02
             this.bnManageTransaction.TabIndex = 0;
             this.bnManageTransaction.Text = "Manage Transaction";
             this.bnManageTransaction.UseVisualStyleBackColor = false;
+            this.bnManageTransaction.Click += new System.EventHandler(this.ShowManageTransactionView);
             // 
             // btnManageTransactionParty
             // 

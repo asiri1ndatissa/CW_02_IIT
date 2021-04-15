@@ -16,5 +16,12 @@ namespace CW_02
         {
             InitializeComponent();
         }
+
+        private void ShowManageTransactionView(object sender, EventArgs e)
+        {
+            ManageTransactionParty manageTransactionParty = new ManageTransactionParty();
+            manageTransactionParty.Activate();
+            manageTransactionParty.ShowDialog();
+        }
     }
 }
