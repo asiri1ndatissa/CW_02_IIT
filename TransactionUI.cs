@@ -28,7 +28,9 @@ namespace CW_02
 
         private void ShowEditTransactionView(object sender, EventArgs e)
         {
-
+            EditTransactionEntryView editTransactionEntryView = new EditTransactionEntryView();
+            editTransactionEntryView.Activate();
+            editTransactionEntryView.Show();
         }
     }
 }

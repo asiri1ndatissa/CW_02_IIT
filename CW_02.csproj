@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditTransactionEntryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditTransactionEntryView.Designer.cs">
+      <DependentUpon>EditTransactionEntryView.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     <Compile Include="TransactionUI.Designer.cs">
       <DependentUpon>TransactionUI.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EditTransactionEntryView.resx">
+      <DependentUpon>EditTransactionEntryView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
