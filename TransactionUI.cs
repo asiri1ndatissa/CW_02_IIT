@@ -19,7 +19,11 @@ namespace CW_02
 
         private void ShowTransactionEntryView(object sender, EventArgs e)
         {
+            TransactionEntryView transactionEntryView = new TransactionEntryView();
+            transactionEntryView.Activate();
+            transactionEntryView.Show();
 
+            this.Close();
         }
 
         private void ShowEditTransactionView(object sender, EventArgs e)
