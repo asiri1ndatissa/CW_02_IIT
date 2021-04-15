@@ -105,9 +105,12 @@ namespace CW_02
             // 
             // dateTransaction
             // 
-            this.dateTransaction.Location = new System.Drawing.Point(196, 140);
+            this.dateTransaction.CustomFormat = "yyyy-MM-dd";
+            this.dateTransaction.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.dateTransaction.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTransaction.Location = new System.Drawing.Point(300, 140);
             this.dateTransaction.Name = "dateTransaction";
-            this.dateTransaction.Size = new System.Drawing.Size(200, 20);
+            this.dateTransaction.Size = new System.Drawing.Size(93, 20);
             this.dateTransaction.TabIndex = 9;
             // 
             // txtId
@@ -126,18 +129,26 @@ namespace CW_02
             // 
             // cmBoxType
             // 
+            this.cmBoxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmBoxType.FormattingEnabled = true;
-            this.cmBoxType.Location = new System.Drawing.Point(273, 194);
+            this.cmBoxType.Items.AddRange(new object[] {
+            "Income",
+            "Expense"});
+            this.cmBoxType.Location = new System.Drawing.Point(250, 194);
             this.cmBoxType.Name = "cmBoxType";
-            this.cmBoxType.Size = new System.Drawing.Size(121, 21);
+            this.cmBoxType.Size = new System.Drawing.Size(144, 21);
             this.cmBoxType.TabIndex = 13;
             // 
             // cmbBoxRecurrent
             // 
+            this.cmbBoxRecurrent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBoxRecurrent.FormattingEnabled = true;
-            this.cmbBoxRecurrent.Location = new System.Drawing.Point(272, 221);
+            this.cmbBoxRecurrent.Items.AddRange(new object[] {
+            "Recurrent",
+            "Oneoff"});
+            this.cmbBoxRecurrent.Location = new System.Drawing.Point(250, 221);
             this.cmbBoxRecurrent.Name = "cmbBoxRecurrent";
-            this.cmbBoxRecurrent.Size = new System.Drawing.Size(121, 21);
+            this.cmbBoxRecurrent.Size = new System.Drawing.Size(143, 21);
             this.cmbBoxRecurrent.TabIndex = 14;
             // 
             // btnSubmit
@@ -150,6 +161,7 @@ namespace CW_02
             this.btnSubmit.TabIndex = 15;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = false;
+            this.btnSubmit.Click += new System.EventHandler(this.SubmitTransactionEntry);
             // 
             // TransactionEntryView
             // 
