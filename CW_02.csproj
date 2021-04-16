@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBTransaction.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBTransaction.xsd</DependentUpon>
+    </Compile>
     <Compile Include="EditTransactionEntryView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +127,17 @@
     <EmbeddedResource Include="TransactionUI.resx">
       <DependentUpon>TransactionUI.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DBTransaction.xsc">
+      <DependentUpon>DBTransaction.xsd</DependentUpon>
+    </None>
+    <None Include="DBTransaction.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBTransaction.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DBTransaction.xss">
+      <DependentUpon>DBTransaction.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -22,6 +22,8 @@ namespace CW_02
        
 
         SortedList transactionPartyModelList = new SortedList();
+
+        private DBTransaction dbTansaction = new DBTransaction();
         public TransactionPartyUI()
         {
             InitializeComponent();
@@ -33,20 +35,7 @@ namespace CW_02
             textWriter.WriteStartDocument();
             textWriter.WriteComment("First Comment XmlTextWriterSample Example");
             textWriter.WriteComment("myXmlFile.xml in root dir");
-       /*     textWriter.WriteStartElement("Transaction Party");
-            // Write next element
-            textWriter.WriteElementString("Name", this.txtTransactionPartyName.Text);
-            textWriter.WriteEndElement(); // Ends the
-            textWriter.WriteElementString("Id", this.txtTransactionpartyId.Text);
-            textWriter.WriteEndElement(); // Ends the
-            textWriter.WriteElementString("Date", this.dateTransactionParty.Text);
-            textWriter.WriteEndElement(); // Ends the
-            textWriter.WriteElementString("Description", this.txtTransactionPartyDescription.Text);
-            textWriter.WriteEndElement(); // Ends the
-            textWriter.WriteEndDocument();
-            textWriter.Flush();
-            textWriter.Close();
-       */
+
 
             // Write first element
             textWriter.WriteStartElement("Transaction Party");
@@ -70,11 +59,12 @@ namespace CW_02
             textWriter.Close();
 
             // close writer textWriter.Close();
+
+         DBTransaction.TransactionPartyRow row =   this.dbTansaction.TransactionParty.NewTransactionPartyRow();
         }
         private void printOutTransactionpartyDetails(SortedList _contacts)
         {
-            //this populates the list box with the student 
-            //clear it first
+           
             listBoxParty.Items.Clear();
             listBoxName.Items.Clear();
             foreach (object obj in _contacts)
@@ -91,10 +81,19 @@ namespace CW_02
         {
             try
             {
-                transactionPartyModelList.Add(txtTransactionpartyId.Text, new TransactionPartyModel(this.dateTransactionParty.Text,this.txtTransactionpartyId.Text,this.txtTransactionPartyName.Text,
+                transactionPartyModelList.Add(txtTransactionpartyId.Text, new TransactionPartyModel(this.dateTransactionParty.Text,
+                    this.txtTransactionpartyId.Text,this.txtTransactionPartyName.Text,
                    this.txtTransactionPartyDescription.Text));
+                DBTransaction.TransactionPartyRow row = this.dbTansaction.TransactionParty.NewTransactionPartyRow();
+                row.TransactionPartyId = this.txtTransactionpartyId.Text;
+                row.Name = this.txtTransactionPartyName.Text;
+                row.JoiningDate = this.dateTransactionParty.Text;
+                row.Description = this.txtTransactionPartyDescription.Text;
+                this.dbTansaction.TransactionParty.AddTransactionPartyRow(row);
+                this.dbTansaction.AcceptChanges();
+               // this.dbTansaction.WriteXml("data.xml");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 labelMessage.Text = "";
                 labelMessage.BackColor = Color.Red;
@@ -102,12 +101,7 @@ namespace CW_02
             }
 
             writeXML();
-         /*   this.TransactionPartyData = new TransactionPartyModel();
-            this.TransactionPartyData.Date = this.dateTransactionParty.Text;
-            this.TransactionPartyData.TransactionPartyId = this.txtTransactionpartyId.Text;
-            this.TransactionPartyData.Name = this.txtTransactionPartyName.Text;
-            this.TransactionPartyData.Description = this.txtTransactionPartyDescription.Text;
-         */
+     
         }
 
       
