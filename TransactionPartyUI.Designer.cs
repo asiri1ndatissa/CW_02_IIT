@@ -39,6 +39,10 @@ namespace CW_02
             this.txtTransactionPartyName = new System.Windows.Forms.TextBox();
             this.txtTransactionPartyDescription = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.labelMessage = new System.Windows.Forms.Label();
+            this.listBoxParty = new System.Windows.Forms.ListBox();
+            this.listBoxName = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -129,11 +133,50 @@ namespace CW_02
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.SubmitTransactionParty);
             // 
+            // labelMessage
+            // 
+            this.labelMessage.AutoSize = true;
+            this.labelMessage.Location = new System.Drawing.Point(63, 191);
+            this.labelMessage.Name = "labelMessage";
+            this.labelMessage.Size = new System.Drawing.Size(16, 13);
+            this.labelMessage.TabIndex = 13;
+            this.labelMessage.Text = "...";
+            // 
+            // listBoxParty
+            // 
+            this.listBoxParty.FormattingEnabled = true;
+            this.listBoxParty.Location = new System.Drawing.Point(612, 60);
+            this.listBoxParty.Name = "listBoxParty";
+            this.listBoxParty.Size = new System.Drawing.Size(45, 173);
+            this.listBoxParty.TabIndex = 14;
+            // 
+            // listBoxName
+            // 
+            this.listBoxName.FormattingEnabled = true;
+            this.listBoxName.Location = new System.Drawing.Point(653, 60);
+            this.listBoxName.Name = "listBoxName";
+            this.listBoxName.Size = new System.Drawing.Size(85, 173);
+            this.listBoxName.TabIndex = 15;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(612, 27);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "List All Contacts";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.printOutContactsDetails);
+            // 
             // TransactionPartyUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.listBoxName);
+            this.Controls.Add(this.listBoxParty);
+            this.Controls.Add(this.labelMessage);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtTransactionPartyDescription);
             this.Controls.Add(this.txtTransactionPartyName);
@@ -163,5 +206,9 @@ namespace CW_02
         private System.Windows.Forms.TextBox txtTransactionPartyName;
         private System.Windows.Forms.TextBox txtTransactionPartyDescription;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Label labelMessage;
+        private System.Windows.Forms.ListBox listBoxParty;
+        private System.Windows.Forms.ListBox listBoxName;
+        private System.Windows.Forms.Button button1;
     }
 }
