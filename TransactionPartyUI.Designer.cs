@@ -34,8 +34,6 @@ namespace CW_02
             this.dateTransactionParty = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtTransactionpartyId = new System.Windows.Forms.TextBox();
             this.txtTransactionPartyName = new System.Windows.Forms.TextBox();
             this.txtTransactionPartyDescription = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
@@ -76,7 +74,7 @@ namespace CW_02
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(63, 245);
+            this.label2.Location = new System.Drawing.Point(63, 187);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 15);
             this.label2.TabIndex = 6;
@@ -86,46 +84,29 @@ namespace CW_02
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(63, 204);
+            this.label4.Location = new System.Drawing.Point(63, 149);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 15);
             this.label4.TabIndex = 7;
             this.label4.Text = "Name:";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(63, 163);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(117, 15);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Transaction Party Id:";
-            // 
-            // txtTransactionpartyId
-            // 
-            this.txtTransactionpartyId.Location = new System.Drawing.Point(212, 162);
-            this.txtTransactionpartyId.Name = "txtTransactionpartyId";
-            this.txtTransactionpartyId.Size = new System.Drawing.Size(174, 20);
-            this.txtTransactionpartyId.TabIndex = 9;
-            // 
             // txtTransactionPartyName
             // 
-            this.txtTransactionPartyName.Location = new System.Drawing.Point(212, 204);
+            this.txtTransactionPartyName.Location = new System.Drawing.Point(212, 151);
             this.txtTransactionPartyName.Name = "txtTransactionPartyName";
             this.txtTransactionPartyName.Size = new System.Drawing.Size(174, 20);
             this.txtTransactionPartyName.TabIndex = 10;
             // 
             // txtTransactionPartyDescription
             // 
-            this.txtTransactionPartyDescription.Location = new System.Drawing.Point(212, 245);
+            this.txtTransactionPartyDescription.Location = new System.Drawing.Point(212, 186);
             this.txtTransactionPartyDescription.Name = "txtTransactionPartyDescription";
             this.txtTransactionPartyDescription.Size = new System.Drawing.Size(174, 20);
             this.txtTransactionPartyDescription.TabIndex = 11;
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(310, 297);
+            this.btnSubmit.Location = new System.Drawing.Point(311, 222);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 12;
@@ -136,7 +117,7 @@ namespace CW_02
             // labelMessage
             // 
             this.labelMessage.AutoSize = true;
-            this.labelMessage.Location = new System.Drawing.Point(63, 191);
+            this.labelMessage.Location = new System.Drawing.Point(474, 265);
             this.labelMessage.Name = "labelMessage";
             this.labelMessage.Size = new System.Drawing.Size(16, 13);
             this.labelMessage.TabIndex = 13;
@@ -180,8 +161,6 @@ namespace CW_02
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtTransactionPartyDescription);
             this.Controls.Add(this.txtTransactionPartyName);
-            this.Controls.Add(this.txtTransactionpartyId);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateTransactionParty);
@@ -201,8 +180,6 @@ namespace CW_02
         private System.Windows.Forms.DateTimePicker dateTransactionParty;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtTransactionpartyId;
         private System.Windows.Forms.TextBox txtTransactionPartyName;
         private System.Windows.Forms.TextBox txtTransactionPartyDescription;
         private System.Windows.Forms.Button btnSubmit;

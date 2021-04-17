@@ -321,13 +321,13 @@ namespace CW_02 {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class TransactionPartyDataTable : global::System.Data.TypedTableBase<TransactionPartyRow> {
             
-            private global::System.Data.DataColumn columnTransactionPartyId;
-            
             private global::System.Data.DataColumn columnName;
             
             private global::System.Data.DataColumn columnJoiningDate;
             
             private global::System.Data.DataColumn columnDescription;
+            
+            private global::System.Data.DataColumn columnTransactionPartyId;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -364,14 +364,6 @@ namespace CW_02 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TransactionPartyIdColumn {
-                get {
-                    return this.columnTransactionPartyId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn NameColumn {
                 get {
                     return this.columnName;
@@ -391,6 +383,14 @@ namespace CW_02 {
             public global::System.Data.DataColumn DescriptionColumn {
                 get {
                     return this.columnDescription;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TransactionPartyIdColumn {
+                get {
+                    return this.columnTransactionPartyId;
                 }
             }
             
@@ -431,13 +431,13 @@ namespace CW_02 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TransactionPartyRow AddTransactionPartyRow(string TransactionPartyId, string Name, string JoiningDate, string Description) {
+            public TransactionPartyRow AddTransactionPartyRow(string Name, System.DateTime JoiningDate, string Description) {
                 TransactionPartyRow rowTransactionPartyRow = ((TransactionPartyRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        TransactionPartyId,
                         Name,
                         JoiningDate,
-                        Description};
+                        Description,
+                        null};
                 rowTransactionPartyRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTransactionPartyRow);
                 return rowTransactionPartyRow;
@@ -460,23 +460,25 @@ namespace CW_02 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnTransactionPartyId = base.Columns["TransactionPartyId"];
                 this.columnName = base.Columns["Name"];
                 this.columnJoiningDate = base.Columns["JoiningDate"];
                 this.columnDescription = base.Columns["Description"];
+                this.columnTransactionPartyId = base.Columns["TransactionPartyId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnTransactionPartyId = new global::System.Data.DataColumn("TransactionPartyId", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTransactionPartyId);
                 this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnName);
-                this.columnJoiningDate = new global::System.Data.DataColumn("JoiningDate", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnJoiningDate = new global::System.Data.DataColumn("JoiningDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnJoiningDate);
                 this.columnDescription = new global::System.Data.DataColumn("Description", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescription);
+                this.columnTransactionPartyId = new global::System.Data.DataColumn("TransactionPartyId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTransactionPartyId);
+                this.columnTransactionPartyId.AutoIncrement = true;
+                this.columnTransactionPartyId.AutoIncrementSeed = 1;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -739,7 +741,7 @@ namespace CW_02 {
                         RecurrentType,
                         null};
                 if ((parentTransactionPartyRowByTransactionParty_Transaction != null)) {
-                    columnValuesArray[0] = parentTransactionPartyRowByTransactionParty_Transaction[0];
+                    columnValuesArray[0] = parentTransactionPartyRowByTransactionParty_Transaction[3];
                 }
                 rowTransactionRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTransactionRow);
@@ -773,7 +775,7 @@ namespace CW_02 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnFK_TransactionPartyId = new global::System.Data.DataColumn("FK_TransactionPartyId", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnFK_TransactionPartyId = new global::System.Data.DataColumn("FK_TransactionPartyId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFK_TransactionPartyId);
                 this.columnAmount = new global::System.Data.DataColumn("Amount", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAmount);
@@ -927,22 +929,6 @@ namespace CW_02 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string TransactionPartyId {
-                get {
-                    try {
-                        return ((string)(this[this.tableTransactionParty.TransactionPartyIdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TransactionPartyId\' in table \'TransactionParty\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableTransactionParty.TransactionPartyIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Name {
                 get {
                     try {
@@ -959,10 +945,10 @@ namespace CW_02 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string JoiningDate {
+            public System.DateTime JoiningDate {
                 get {
                     try {
-                        return ((string)(this[this.tableTransactionParty.JoiningDateColumn]));
+                        return ((global::System.DateTime)(this[this.tableTransactionParty.JoiningDateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'JoiningDate\' in table \'TransactionParty\' is DBNull.", e);
@@ -991,14 +977,18 @@ namespace CW_02 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTransactionPartyIdNull() {
-                return this.IsNull(this.tableTransactionParty.TransactionPartyIdColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTransactionPartyIdNull() {
-                this[this.tableTransactionParty.TransactionPartyIdColumn] = global::System.Convert.DBNull;
+            public int TransactionPartyId {
+                get {
+                    try {
+                        return ((int)(this[this.tableTransactionParty.TransactionPartyIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TransactionPartyId\' in table \'TransactionParty\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransactionParty.TransactionPartyIdColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1039,6 +1029,18 @@ namespace CW_02 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTransactionPartyIdNull() {
+                return this.IsNull(this.tableTransactionParty.TransactionPartyIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTransactionPartyIdNull() {
+                this[this.tableTransactionParty.TransactionPartyIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public TransactionRow[] GetTransactionRows() {
                 if ((this.Table.ChildRelations["TransactionParty_Transaction"] == null)) {
                     return new TransactionRow[0];
@@ -1065,10 +1067,10 @@ namespace CW_02 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string FK_TransactionPartyId {
+            public int FK_TransactionPartyId {
                 get {
                     try {
-                        return ((string)(this[this.tableTransaction.FK_TransactionPartyIdColumn]));
+                        return ((int)(this[this.tableTransaction.FK_TransactionPartyIdColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'FK_TransactionPartyId\' in table \'Transaction\' is DBNull.", e);

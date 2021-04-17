@@ -12,15 +12,18 @@ namespace CW_02
     using System;
     using System.Collections.Generic;
     
-    public partial class Transaction
+    public partial class TransactionParty
     {
-        public int Id { get; set; }
-        public double Amount { get; set; }
-        public System.DateTime Date { get; set; }
-        public string TransactionType { get; set; }
-        public string RecurrentType { get; set; }
-        public int TransactionPartyId { get; set; }
+        public TransactionParty()
+        {
+            this.Transactions = new HashSet<Transaction>();
+        }
     
-        public virtual TransactionParty TransactionParty { get; set; }
+        public int Id { get; set; }
+        public string Description { get; set; }
+        public System.DateTime JoiningDate { get; set; }
+        public string TransactionPartyName { get; set; }
+    
+        public virtual ICollection<Transaction> Transactions { get; set; }
     }
 }

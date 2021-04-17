@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MyDatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="MyDatabaseModelStoreContainer">
+    <EntitySet Name="TransactionParties" EntityType="MyDatabaseModel.Store.TransactionParties" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Transactions" EntityType="MyDatabaseModel.Store.Transactions" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="TransactionPartyTransaction" Association="MyDatabaseModel.Store.TransactionPartyTransaction">
+      <End Role="TransactionParty" EntitySet="TransactionParties" />
+      <End Role="Transaction" EntitySet="Transactions" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="TransactionParties">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="JoiningDate" Type="datetime" Nullable="false" />
+    <Property Name="TransactionPartyName" Type="nvarchar" Nullable="false" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="Transactions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Amount" Type="float" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="TransactionType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RecurrentType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TransactionPartyId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="TransactionPartyTransaction">
+    <End Role="TransactionParty" Type="MyDatabaseModel.Store.TransactionParties" Multiplicity="1" />
+    <End Role="Transaction" Type="MyDatabaseModel.Store.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TransactionParty">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="TransactionPartyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MyDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MyDatabaseEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="TransactionParties" EntityType="MyDatabaseModel.TransactionParty" />
+          <EntitySet Name="Transactions" EntityType="MyDatabaseModel.Transaction" />
+          <AssociationSet Name="TransactionPartyTransaction" Association="MyDatabaseModel.TransactionPartyTransaction">
+            <End Role="TransactionParty" EntitySet="TransactionParties" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TransactionParty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="100" />
+          <Property Name="JoiningDate" Type="DateTime" Nullable="false" />
+          <Property Name="TransactionPartyName" Type="String" Nullable="false" MaxLength="35" />
+          <NavigationProperty Name="Transactions" Relationship="MyDatabaseModel.TransactionPartyTransaction" FromRole="TransactionParty" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Amount" Type="Double" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="TransactionType" Type="String" Nullable="false" />
+          <Property Name="RecurrentType" Type="String" Nullable="false" />
+          <NavigationProperty Name="TransactionParty" Relationship="MyDatabaseModel.TransactionPartyTransaction" FromRole="Transaction" ToRole="TransactionParty" />
+          <Property Name="TransactionPartyId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="TransactionPartyTransaction">
+          <End Type="MyDatabaseModel.TransactionParty" Role="TransactionParty" Multiplicity="1" />
+          <End Type="MyDatabaseModel.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransactionParty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="TransactionPartyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MyDatabaseModelStoreContainer" CdmEntityContainer="MyDatabaseEntities">
+    <EntitySetMapping Name="TransactionParties">
+      <EntityTypeMapping TypeName="IsTypeOf(MyDatabaseModel.TransactionParty)">
+        <MappingFragment StoreEntitySet="TransactionParties">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+          <ScalarProperty Name="TransactionPartyName" ColumnName="TransactionPartyName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="IsTypeOf(MyDatabaseModel.Transaction)">
+        <MappingFragment StoreEntitySet="Transactions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+          <ScalarProperty Name="RecurrentType" ColumnName="RecurrentType" />
+          <ScalarProperty Name="TransactionPartyId" ColumnName="TransactionPartyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

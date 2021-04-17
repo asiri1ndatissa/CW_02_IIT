@@ -21,13 +21,13 @@ namespace CW_02
         private void SubmitTransactionEntry(object sender, EventArgs e)
         {
             this.TransactionData = new Transaction();
-            this.TransactionData.Date = this.dateTransaction.Text;
-            this.TransactionData.TransactionpartyId = this.txtId.Text;
-            this.TransactionData.Type = this.cmBoxType.Text;
+            this.TransactionData.Date = this.dateTransaction.Value;
+            this.TransactionData.TransactionPartyId = Int16.Parse(this.cmbId.Text);
+            this.TransactionData.TransactionType = this.cmBoxType.Text;
             this.TransactionData.RecurrentType = this.cmbBoxRecurrent.Text;
-            this.TransactionData.Amount = this.txtAmount.Text;
+            this.TransactionData.Amount = Convert.ToDouble(this.txtAmount.Text);
 
-            Console.WriteLine("sfshf" + TransactionData.Type);
+            Console.WriteLine("sfshf" + TransactionData.TransactionType);
 
         }
     }

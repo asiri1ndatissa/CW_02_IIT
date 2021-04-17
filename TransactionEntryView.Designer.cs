@@ -36,11 +36,11 @@ namespace CW_02
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTransaction = new System.Windows.Forms.DateTimePicker();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.cmBoxType = new System.Windows.Forms.ComboBox();
             this.cmbBoxRecurrent = new System.Windows.Forms.ComboBox();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.cmbId = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -113,13 +113,6 @@ namespace CW_02
             this.dateTransaction.Size = new System.Drawing.Size(93, 20);
             this.dateTransaction.TabIndex = 9;
             // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(250, 167);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(145, 20);
-            this.txtId.TabIndex = 10;
-            // 
             // txtAmount
             // 
             this.txtAmount.Location = new System.Drawing.Point(249, 248);
@@ -163,16 +156,31 @@ namespace CW_02
             this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.SubmitTransactionEntry);
             // 
+            // cmbId
+            // 
+            this.cmbId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbId.FormattingEnabled = true;
+            this.cmbId.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
+            this.cmbId.Location = new System.Drawing.Point(250, 167);
+            this.cmbId.Name = "cmbId";
+            this.cmbId.Size = new System.Drawing.Size(143, 21);
+            this.cmbId.TabIndex = 16;
+            // 
             // TransactionEntryView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(490, 450);
+            this.Controls.Add(this.cmbId);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.cmbBoxRecurrent);
             this.Controls.Add(this.cmBoxType);
             this.Controls.Add(this.txtAmount);
-            this.Controls.Add(this.txtId);
             this.Controls.Add(this.dateTransaction);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -196,10 +204,10 @@ namespace CW_02
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dateTransaction;
-        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.ComboBox cmBoxType;
         private System.Windows.Forms.ComboBox cmbBoxRecurrent;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.ComboBox cmbId;
     }
 }
