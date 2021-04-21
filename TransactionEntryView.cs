@@ -13,11 +13,16 @@ namespace CW_02
     public partial class TransactionEntryView : Form
     {
         public Transaction TransactionData { get; set; }
+
         public TransactionEntryView()
         {
             InitializeComponent();
         }
+        private List<int> listId = new List<int>();
 
+        TransactionPartyModel transactionPartyModel = new TransactionPartyModel();
+   
+        
         private void SubmitTransactionEntry(object sender, EventArgs e)
         {
             this.TransactionData = new Transaction();
@@ -30,5 +35,14 @@ namespace CW_02
             Console.WriteLine("sfshf" + TransactionData.TransactionType);
 
         }
+
+        private void TransactionEntryView_Load(object sender, EventArgs e)
+        {
+            listId = transactionPartyModel.LoadTransactionParty();
+            listId.ForEach(i => this.cmbId.Items.Add(i));
+
+        }
+
+    
     }
 }

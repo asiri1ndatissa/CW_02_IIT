@@ -49,18 +49,31 @@ namespace CW_02
 
         }
 
-        public void LoadTransactionParty()
+        public List<int> LoadTransactionParty()
         {
             //  MyDatabaseEntities db = new MyDatabaseEntities();
-            using (var context = new MyDatabaseEntities())
+            /*
+                using (var context = new MyDatabaseEntities())
+                {
+                    var query = from st in context.TransactionParties
+
+                                select st.Id;
+                    Console.WriteLine("query" + query);
+
+
+                }
+            */
+            MyDatabaseEntities db = new MyDatabaseEntities();
+
+            var table = db.TransactionParties;
+            List<int> list = new List<int>();
+
+            foreach (var record in table)
             {
-                var query = from st in context.TransactionParties
-                            
-                            select st.Id;
-                Console.WriteLine("query" + query);
-
+                list.Add(record.Id);
+          //      Console.WriteLine("sdjsd" + record.Id);
             }
-
+            return list;
         }
     }
 }

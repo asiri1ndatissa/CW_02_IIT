@@ -41,6 +41,10 @@ namespace CW_02
             this.cmbBoxRecurrent = new System.Windows.Forms.ComboBox();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.cmbId = new System.Windows.Forms.ComboBox();
+            this.btnShowDataGrid = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -171,11 +175,38 @@ namespace CW_02
             this.cmbId.Size = new System.Drawing.Size(143, 21);
             this.cmbId.TabIndex = 16;
             // 
+            // btnShowDataGrid
+            // 
+            this.btnShowDataGrid.Location = new System.Drawing.Point(71, 330);
+            this.btnShowDataGrid.Name = "btnShowDataGrid";
+            this.btnShowDataGrid.Size = new System.Drawing.Size(75, 23);
+            this.btnShowDataGrid.TabIndex = 18;
+            this.btnShowDataGrid.Text = "button1";
+            this.btnShowDataGrid.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(43, 374);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(195, 20);
+            this.textBox1.TabIndex = 19;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(60, 435);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(588, 150);
+            this.dataGridView1.TabIndex = 20;
+            // 
             // TransactionEntryView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(490, 450);
+            this.ClientSize = new System.Drawing.Size(774, 669);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnShowDataGrid);
             this.Controls.Add(this.cmbId);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.cmbBoxRecurrent);
@@ -190,6 +221,8 @@ namespace CW_02
             this.Controls.Add(this.label1);
             this.Name = "TransactionEntryView";
             this.Text = "Transaction Entry View";
+            this.Load += new System.EventHandler(this.TransactionEntryView_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,5 +242,8 @@ namespace CW_02
         private System.Windows.Forms.ComboBox cmbBoxRecurrent;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.ComboBox cmbId;
+        private System.Windows.Forms.Button btnShowDataGrid;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
