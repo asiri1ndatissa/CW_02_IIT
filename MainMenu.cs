@@ -37,5 +37,19 @@ namespace CW_02
             produceReport.Activate();
             produceReport.ShowDialog();
         }
+
+        private void ShowPrediction(object sender, EventArgs e)
+        {
+            ProduceFinancialStatus produceFinancialStatus = new ProduceFinancialStatus();
+            produceFinancialStatus.Activate();
+            produceFinancialStatus.ShowDialog();
+        }
+
+        private void LoadManageEventView(object sender, EventArgs e)
+        {
+            EventUI eventUI = new EventUI();
+            eventUI.Activate();
+            eventUI.ShowDialog();
+        }
     }
 }

@@ -29,21 +29,23 @@ namespace CW_02
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddTransactionParty = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSearchById = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.txtDescription = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnUpdateTransactionParty = new System.Windows.Forms.Button();
-            this.btnDeleteTransactionParty = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.btnSearchById = new System.Windows.Forms.Button();
+            this.dataGridTransactionParty = new System.Windows.Forms.DataGridView();
+            this.contactDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Update = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridTransactionParty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactDetailsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -82,7 +84,7 @@ namespace CW_02
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(51, 210);
+            this.label3.Location = new System.Drawing.Point(76, 217);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 15);
             this.label3.TabIndex = 3;
@@ -90,109 +92,93 @@ namespace CW_02
             // 
             // txtSearchById
             // 
-            this.txtSearchById.Location = new System.Drawing.Point(153, 210);
+            this.txtSearchById.Location = new System.Drawing.Point(193, 216);
             this.txtSearchById.Name = "txtSearchById";
             this.txtSearchById.Size = new System.Drawing.Size(100, 20);
             this.txtSearchById.TabIndex = 4;
             // 
-            // groupBox1
+            // btnSearchById
             // 
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtDescription);
-            this.groupBox1.Controls.Add(this.txtName);
-            this.groupBox1.Controls.Add(this.txtId);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(54, 249);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(249, 130);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.btnSearchById.Location = new System.Drawing.Point(357, 212);
+            this.btnSearchById.Name = "btnSearchById";
+            this.btnSearchById.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchById.TabIndex = 6;
+            this.btnSearchById.Text = "Search";
+            this.btnSearchById.UseVisualStyleBackColor = true;
+            this.btnSearchById.Click += new System.EventHandler(this.SearchById);
             // 
-            // label4
+            // dataGridTransactionParty
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(40, 35);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(17, 15);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Id";
+            this.dataGridTransactionParty.AllowUserToAddRows = false;
+            this.dataGridTransactionParty.AutoGenerateColumns = false;
+            this.dataGridTransactionParty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridTransactionParty.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.dateDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
+            this.Update,
+            this.Delete});
+            this.dataGridTransactionParty.DataSource = this.contactDetailsBindingSource;
+            this.dataGridTransactionParty.Location = new System.Drawing.Point(79, 281);
+            this.dataGridTransactionParty.Name = "dataGridTransactionParty";
+            this.dataGridTransactionParty.Size = new System.Drawing.Size(498, 150);
+            this.dataGridTransactionParty.TabIndex = 7;
+            this.dataGridTransactionParty.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridTransactionPartyLoadData);
             // 
-            // txtId
+            // contactDetailsBindingSource
             // 
-            this.txtId.Location = new System.Drawing.Point(124, 35);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(100, 20);
-            this.txtId.TabIndex = 1;
+            this.contactDetailsBindingSource.DataSource = typeof(CW_02.ContactDetails);
             // 
-            // txtName
+            // idDataGridViewTextBoxColumn
             // 
-            this.txtName.Location = new System.Drawing.Point(124, 61);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 20);
-            this.txtName.TabIndex = 2;
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MaxInputLength = 10;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Width = 40;
             // 
-            // txtDescription
+            // dateDataGridViewTextBoxColumn
             // 
-            this.txtDescription.Location = new System.Drawing.Point(124, 87);
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(100, 20);
-            this.txtDescription.TabIndex = 3;
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
             // 
-            // label5
+            // nameDataGridViewTextBoxColumn
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(40, 92);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 15);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Description";
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             // 
-            // label6
+            // descriptionDataGridViewTextBoxColumn
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(40, 66);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 15);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Name";
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
             // 
-            // btnUpdateTransactionParty
+            // Update
             // 
-            this.btnUpdateTransactionParty.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnUpdateTransactionParty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateTransactionParty.Location = new System.Drawing.Point(227, 396);
-            this.btnUpdateTransactionParty.Name = "btnUpdateTransactionParty";
-            this.btnUpdateTransactionParty.Size = new System.Drawing.Size(76, 28);
-            this.btnUpdateTransactionParty.TabIndex = 6;
-            this.btnUpdateTransactionParty.Text = "Update";
-            this.btnUpdateTransactionParty.UseVisualStyleBackColor = false;
-            this.btnUpdateTransactionParty.Click += new System.EventHandler(this.UpdateTransactionParty);
+            this.Update.HeaderText = "Update";
+            this.Update.Name = "Update";
+            this.Update.Text = "Update";
+            this.Update.UseColumnTextForButtonValue = true;
+            this.Update.Width = 50;
             // 
-            // btnDeleteTransactionParty
+            // Delete
             // 
-            this.btnDeleteTransactionParty.BackColor = System.Drawing.Color.Red;
-            this.btnDeleteTransactionParty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteTransactionParty.Location = new System.Drawing.Point(130, 396);
-            this.btnDeleteTransactionParty.Name = "btnDeleteTransactionParty";
-            this.btnDeleteTransactionParty.Size = new System.Drawing.Size(79, 28);
-            this.btnDeleteTransactionParty.TabIndex = 7;
-            this.btnDeleteTransactionParty.Text = "Delete";
-            this.btnDeleteTransactionParty.UseVisualStyleBackColor = false;
-            this.btnDeleteTransactionParty.Click += new System.EventHandler(this.DeleteTransactionParty);
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 50;
             // 
             // ManageTransactionParty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnDeleteTransactionParty);
-            this.Controls.Add(this.btnUpdateTransactionParty);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(876, 536);
+            this.Controls.Add(this.dataGridTransactionParty);
+            this.Controls.Add(this.btnSearchById);
             this.Controls.Add(this.txtSearchById);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -200,8 +186,8 @@ namespace CW_02
             this.Controls.Add(this.label1);
             this.Name = "ManageTransactionParty";
             this.Text = "Manage Transaction Party";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridTransactionParty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactDetailsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,14 +200,14 @@ namespace CW_02
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtSearchById;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtDescription;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnUpdateTransactionParty;
-        private System.Windows.Forms.Button btnDeleteTransactionParty;
+        private System.Windows.Forms.BindingSource contactDetailsBindingSource;
+        private System.Windows.Forms.Button btnSearchById;
+        private System.Windows.Forms.DataGridView dataGridTransactionParty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn Update;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }

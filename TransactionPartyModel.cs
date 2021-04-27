@@ -49,20 +49,24 @@ namespace CW_02
 
         }
 
+        /*public void SaveTransaction(DateTime date, int transactionId, String transactionType,
+                                        String recurrentType, double amount)
+        {
+            Transaction transaction = new Transaction();
+            transaction.Amount = amount;
+            transaction.Date = date;
+            transaction.TransactionPartyId = transactionId;
+            transaction.RecurrentType = recurrentType;
+            transaction.TransactionType = transactionType;
+
+            MyDatabaseEntities db = new MyDatabaseEntities();
+            db.Transactions.Add(transaction);
+            db.SaveChanges();
+        }*/
+
         public List<int> LoadTransactionParty()
         {
-            //  MyDatabaseEntities db = new MyDatabaseEntities();
-            /*
-                using (var context = new MyDatabaseEntities())
-                {
-                    var query = from st in context.TransactionParties
-
-                                select st.Id;
-                    Console.WriteLine("query" + query);
-
-
-                }
-            */
+           
             MyDatabaseEntities db = new MyDatabaseEntities();
 
             var table = db.TransactionParties;
@@ -74,6 +78,36 @@ namespace CW_02
           //      Console.WriteLine("sdjsd" + record.Id);
             }
             return list;
+        }
+        public dynamic LoadTransactionPartyDetails()
+        {
+            MyDatabaseEntities db = new MyDatabaseEntities();
+
+            return db.TransactionParties;
+        }
+        public void DeleteTransactionParty(int id)
+        {
+            TransactionParty contact = new TransactionParty();
+
+            MyDatabaseEntities db = new MyDatabaseEntities();
+            var transactionItem = db.TransactionParties.Find(id);
+            db.TransactionParties.Remove(transactionItem);
+            db.SaveChanges();
+        }
+
+        public void UpdateTransactionParty(int id, string name, string description)
+        {
+            TransactionParty transactionParty = new TransactionParty();
+
+            transactionParty.Id = id;
+            transactionParty.TransactionPartyName = name;
+            transactionParty.Description = description;
+
+            MyDatabaseEntities db = new MyDatabaseEntities();
+            var transactionPartyItem = db.TransactionParties.Find(id);
+            transactionPartyItem.Description = transactionParty.Description;
+            transactionPartyItem.TransactionPartyName = transactionParty.TransactionPartyName;
+            db.SaveChanges();
         }
     }
 }

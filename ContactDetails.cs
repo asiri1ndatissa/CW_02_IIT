@@ -8,13 +8,20 @@ namespace CW_02
 {
     public class ContactDetails
     {
-    
 
-    public ContactDetails(DateTime date, String name, String description)
+
+        public ContactDetails(DateTime date, String name, String description, int id = 1)
         {
             this.Name = name;
             this.Date = date;
             this.Description = description;
+            this.Id = id;
+        }
+        int id;
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
         }
 
         DateTime date;

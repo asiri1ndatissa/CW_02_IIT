@@ -83,6 +83,7 @@ namespace CW_02
             this.btnPrediction.TabIndex = 3;
             this.btnPrediction.Text = "Prediction";
             this.btnPrediction.UseVisualStyleBackColor = false;
+            this.btnPrediction.Click += new System.EventHandler(this.ShowPrediction);
             // 
             // btnManageEvent
             // 
@@ -94,6 +95,7 @@ namespace CW_02
             this.btnManageEvent.TabIndex = 4;
             this.btnManageEvent.Text = "Manage an Event";
             this.btnManageEvent.UseVisualStyleBackColor = false;
+            this.btnManageEvent.Click += new System.EventHandler(this.LoadManageEventView);
             // 
             // btnWeeklyView
             // 

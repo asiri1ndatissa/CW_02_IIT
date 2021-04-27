@@ -80,6 +80,14 @@
     <Compile Include="EditTransactionEntryView.Designer.cs">
       <DependentUpon>EditTransactionEntryView.cs</DependentUpon>
     </Compile>
+    <Compile Include="EventDataModel.cs" />
+    <Compile Include="EventDetails.cs" />
+    <Compile Include="EventUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventUI.Designer.cs">
+      <DependentUpon>EventUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +100,12 @@
     <Compile Include="ManageTransactionParty.Designer.cs">
       <DependentUpon>ManageTransactionParty.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProduceFinancialStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProduceFinancialStatus.Designer.cs">
+      <DependentUpon>ProduceFinancialStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProduceReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,12 +117,14 @@
     <Compile Include="Transaction.cs">
       <DependentUpon>DataBaseMODEL.tt</DependentUpon>
     </Compile>
+    <Compile Include="TransactionData.cs" />
     <Compile Include="TransactionEntryView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TransactionEntryView.Designer.cs">
       <DependentUpon>TransactionEntryView.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransactionModel.cs" />
     <Compile Include="TransactionParty.cs">
       <DependentUpon>DataBaseMODEL.tt</DependentUpon>
     </Compile>
@@ -128,11 +144,17 @@
     <EmbeddedResource Include="EditTransactionEntryView.resx">
       <DependentUpon>EditTransactionEntryView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EventUI.resx">
+      <DependentUpon>EventUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageTransactionParty.resx">
       <DependentUpon>ManageTransactionParty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProduceFinancialStatus.resx">
+      <DependentUpon>ProduceFinancialStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProduceReport.resx">
       <DependentUpon>ProduceReport.cs</DependentUpon>
@@ -174,6 +196,9 @@
       <DependentUpon>DBTransaction.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\ContactDetails.datasource" />
+    <None Include="Properties\DataSources\Transaction.datasource" />
+    <None Include="Properties\DataSources\TransactionData.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

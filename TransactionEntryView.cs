@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace CW_02
@@ -13,6 +14,8 @@ namespace CW_02
     public partial class TransactionEntryView : Form
     {
         public Transaction TransactionData { get; set; }
+
+        private DBTransaction dBTransaction = new DBTransaction();
 
         public TransactionEntryView()
         {
@@ -34,15 +37,54 @@ namespace CW_02
 
             Console.WriteLine("sfshf" + TransactionData.TransactionType);
 
+            if (File.Exists(@"transaction.xml"))
+            {
+                this.dBTransaction.ReadXml(@"transaction.xml");
+            }
+
+            DBTransaction.TransactionRow row = this.dBTransaction.Transaction.NewTransactionRow();
+            row.Amount = this.txtAmount.Text;
+            row.RecurrentType = this.cmbBoxRecurrent.Text;
+            row.FK_TransactionPartyId = this.cmbId.SelectedIndex;
+            row.TransactionType = this.cmBoxType.Text;
+            this.dBTransaction.Transaction.AddTransactionRow(row);
+            this.dBTransaction.AcceptChanges();
+            this.dBTransaction.WriteXml(@"transaction.xml");
+
+            TransactionModel transactionModel = new TransactionModel();
+            transactionModel.SaveTransaction(this.TransactionData.Date,
+                                       this.TransactionData.TransactionPartyId,
+                                       this.TransactionData.TransactionType, this.TransactionData.RecurrentType, 
+                                       this.TransactionData.Amount);
+
+            this.dBTransaction.Reset();
+            File.Delete(@"transaction.xml");
+            MessageBox.Show("Successfully Saved");
+            this.Close();
         }
 
         private void TransactionEntryView_Load(object sender, EventArgs e)
         {
             listId = transactionPartyModel.LoadTransactionParty();
             listId.ForEach(i => this.cmbId.Items.Add(i));
+            this.dataGridTransactionParty.Rows.Clear();
+            MyDatabaseEntities db = new MyDatabaseEntities();
+            TransactionPartyModel transactionPartyModelDetail = new TransactionPartyModel();
+            Cursor = Cursors.WaitCursor;
+            var transactionPartyTable = db.TransactionParties;
+            foreach (var record in transactionPartyTable)
+            {
+              
+                    this.contactDetailsBindingSource.Add(new ContactDetails(record.JoiningDate, record.TransactionPartyName
+                                                        , record.Description, record.Id));
+            }
+            Cursor = Cursors.Arrow;
 
         }
 
-    
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

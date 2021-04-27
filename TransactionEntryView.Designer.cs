@@ -29,6 +29,7 @@ namespace CW_02
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,10 +42,13 @@ namespace CW_02
             this.cmbBoxRecurrent = new System.Windows.Forms.ComboBox();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.cmbId = new System.Windows.Forms.ComboBox();
-            this.btnShowDataGrid = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dataGridTransactionParty = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridTransactionParty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactDetailsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -164,49 +168,58 @@ namespace CW_02
             // 
             this.cmbId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbId.FormattingEnabled = true;
-            this.cmbId.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
             this.cmbId.Location = new System.Drawing.Point(250, 167);
             this.cmbId.Name = "cmbId";
             this.cmbId.Size = new System.Drawing.Size(143, 21);
             this.cmbId.TabIndex = 16;
             // 
-            // btnShowDataGrid
+            // dataGridTransactionParty
             // 
-            this.btnShowDataGrid.Location = new System.Drawing.Point(71, 330);
-            this.btnShowDataGrid.Name = "btnShowDataGrid";
-            this.btnShowDataGrid.Size = new System.Drawing.Size(75, 23);
-            this.btnShowDataGrid.TabIndex = 18;
-            this.btnShowDataGrid.Text = "button1";
-            this.btnShowDataGrid.UseVisualStyleBackColor = true;
+            this.dataGridTransactionParty.AutoGenerateColumns = false;
+            this.dataGridTransactionParty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridTransactionParty.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn});
+            this.dataGridTransactionParty.DataSource = this.contactDetailsBindingSource;
+            this.dataGridTransactionParty.Location = new System.Drawing.Point(550, 140);
+            this.dataGridTransactionParty.Name = "dataGridTransactionParty";
+            this.dataGridTransactionParty.Size = new System.Drawing.Size(254, 297);
+            this.dataGridTransactionParty.TabIndex = 20;
             // 
-            // textBox1
+            // label7
             // 
-            this.textBox1.Location = new System.Drawing.Point(43, 374);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(195, 20);
-            this.textBox1.TabIndex = 19;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(547, 109);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(173, 18);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Transaction Party Details";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // dataGridView1
+            // idDataGridViewTextBoxColumn
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(60, 435);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(588, 150);
-            this.dataGridView1.TabIndex = 20;
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // contactDetailsBindingSource
+            // 
+            this.contactDetailsBindingSource.DataSource = typeof(CW_02.ContactDetails);
             // 
             // TransactionEntryView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(774, 669);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.btnShowDataGrid);
+            this.ClientSize = new System.Drawing.Size(962, 669);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.dataGridTransactionParty);
             this.Controls.Add(this.cmbId);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.cmbBoxRecurrent);
@@ -222,7 +235,8 @@ namespace CW_02
             this.Name = "TransactionEntryView";
             this.Text = "Transaction Entry View";
             this.Load += new System.EventHandler(this.TransactionEntryView_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridTransactionParty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactDetailsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,8 +256,10 @@ namespace CW_02
         private System.Windows.Forms.ComboBox cmbBoxRecurrent;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.ComboBox cmbId;
-        private System.Windows.Forms.Button btnShowDataGrid;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridTransactionParty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource contactDetailsBindingSource;
+        private System.Windows.Forms.Label label7;
     }
 }

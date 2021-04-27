@@ -65,9 +65,11 @@ namespace CW_02
             // 
             // dateTransactionParty
             // 
-            this.dateTransactionParty.Location = new System.Drawing.Point(186, 119);
+            this.dateTransactionParty.CustomFormat = "yyyy-MM-dd";
+            this.dateTransactionParty.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTransactionParty.Location = new System.Drawing.Point(293, 119);
             this.dateTransactionParty.Name = "dateTransactionParty";
-            this.dateTransactionParty.Size = new System.Drawing.Size(200, 20);
+            this.dateTransactionParty.Size = new System.Drawing.Size(93, 20);
             this.dateTransactionParty.TabIndex = 5;
             // 
             // label2
