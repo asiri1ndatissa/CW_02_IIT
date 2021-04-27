@@ -27,5 +27,7 @@ namespace CW_02
     
         public DbSet<TransactionParty> TransactionParties { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

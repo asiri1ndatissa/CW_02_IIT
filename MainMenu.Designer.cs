@@ -107,6 +107,7 @@ namespace CW_02
             this.btnWeeklyView.TabIndex = 5;
             this.btnWeeklyView.Text = "Weekly View";
             this.btnWeeklyView.UseVisualStyleBackColor = false;
+            this.btnWeeklyView.Click += new System.EventHandler(this.ShowWeeklyView);
             // 
             // MainMenu
             // 

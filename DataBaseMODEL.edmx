@@ -8,6 +8,8 @@
   <EntityContainer Name="MyDatabaseModelStoreContainer">
     <EntitySet Name="TransactionParties" EntityType="MyDatabaseModel.Store.TransactionParties" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Transactions" EntityType="MyDatabaseModel.Store.Transactions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Events" EntityType="MyDatabaseModel.Store.Events" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="MyDatabaseModel.Store.Users" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="TransactionPartyTransaction" Association="MyDatabaseModel.Store.TransactionPartyTransaction">
       <End Role="TransactionParty" EntitySet="TransactionParties" />
       <End Role="Transaction" EntitySet="Transactions" />
@@ -33,6 +35,23 @@
     <Property Name="RecurrentType" Type="nvarchar(max)" Nullable="false" />
     <Property Name="TransactionPartyId" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Amount" Type="float" Nullable="false" />
+    <Property Name="Interval" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
   <Association Name="TransactionPartyTransaction">
     <End Role="TransactionParty" Type="MyDatabaseModel.Store.TransactionParties" Multiplicity="1" />
     <End Role="Transaction" Type="MyDatabaseModel.Store.Transactions" Multiplicity="*" />
@@ -56,6 +75,8 @@
             <End Role="TransactionParty" EntitySet="TransactionParties" />
             <End Role="Transaction" EntitySet="Transactions" />
           </AssociationSet>
+          <EntitySet Name="Events" EntityType="MyDatabaseModel.Event" />
+          <EntitySet Name="Users" EntityType="MyDatabaseModel.User" />
         </EntityContainer>
         <EntityType Name="TransactionParty">
           <Key>
@@ -91,6 +112,23 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Amount" Type="Double" Nullable="false" />
+          <Property Name="Interval" Type="String" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -116,6 +154,25 @@
           <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
           <ScalarProperty Name="RecurrentType" ColumnName="RecurrentType" />
           <ScalarProperty Name="TransactionPartyId" ColumnName="TransactionPartyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="IsTypeOf(MyDatabaseModel.Event)">
+        <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Interval" ColumnName="Interval" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(MyDatabaseModel.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

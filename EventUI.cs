@@ -19,7 +19,9 @@ namespace CW_02
 
         private void ShowEntryEventView(object sender, EventArgs e)
         {
-
+            EventAddView eventAddView = new EventAddView();
+            eventAddView.Activate();
+            eventAddView.ShowDialog();
         }
 
         private void ShowUpdateEntryView(object sender, EventArgs e)

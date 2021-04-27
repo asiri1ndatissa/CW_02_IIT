@@ -51,5 +51,12 @@ namespace CW_02
             eventUI.Activate();
             eventUI.ShowDialog();
         }
+
+        private void ShowWeeklyView(object sender, EventArgs e)
+        {
+            WeeklyView weekly = new WeeklyView();
+            weekly.Activate();
+            weekly.ShowDialog();
+        }
     }
 }

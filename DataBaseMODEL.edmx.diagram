@@ -8,6 +8,8 @@
         <EntityTypeShape EntityType="MyDatabaseModel.TransactionParty" Width="2.25" PointX="2.5" PointY="1.125" />
         <EntityTypeShape EntityType="MyDatabaseModel.Transaction" Width="2.25" PointX="6.5" PointY="1.125" />
         <AssociationConnector Association="MyDatabaseModel.TransactionPartyTransaction" />
+        <EntityTypeShape EntityType="MyDatabaseModel.Event" Width="1.5" PointX="10.25" PointY="1.25" />
+        <EntityTypeShape EntityType="MyDatabaseModel.User" Width="1.5" PointX="4.75" PointY="4.625" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

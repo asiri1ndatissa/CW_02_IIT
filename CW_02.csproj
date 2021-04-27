@@ -80,6 +80,15 @@
     <Compile Include="EditTransactionEntryView.Designer.cs">
       <DependentUpon>EditTransactionEntryView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Event.cs">
+      <DependentUpon>DataBaseMODEL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EventAddView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventAddView.Designer.cs">
+      <DependentUpon>EventAddView.cs</DependentUpon>
+    </Compile>
     <Compile Include="EventDataModel.cs" />
     <Compile Include="EventDetails.cs" />
     <Compile Include="EventUI.cs">
@@ -141,8 +150,20 @@
     <Compile Include="TransactionUI.Designer.cs">
       <DependentUpon>TransactionUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>DataBaseMODEL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WeeklyView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WeeklyView.Designer.cs">
+      <DependentUpon>WeeklyView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="EditTransactionEntryView.resx">
       <DependentUpon>EditTransactionEntryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventAddView.resx">
+      <DependentUpon>EventAddView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EventUI.resx">
       <DependentUpon>EventUI.cs</DependentUpon>
@@ -177,6 +198,9 @@
     <EmbeddedResource Include="TransactionUI.resx">
       <DependentUpon>TransactionUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WeeklyView.resx">
+      <DependentUpon>WeeklyView.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="DataBaseMODEL.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DataBaseMODEL.Designer.cs</LastGenOutput>
@@ -197,6 +221,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ContactDetails.datasource" />
+    <None Include="Properties\DataSources\EventDetails.datasource" />
     <None Include="Properties\DataSources\Transaction.datasource" />
     <None Include="Properties\DataSources\TransactionData.datasource" />
     <None Include="Properties\Settings.settings">

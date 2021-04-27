@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/16/2021 14:45:24
+-- Date Created: 04/27/2021 14:55:04
 -- Generated from EDMX file: C:\Users\Asiri\source\repos\CW_02\DataBaseMODEL.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,26 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_TransactionPartyTransaction]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Transactions] DROP CONSTRAINT [FK_TransactionPartyTransaction];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[TransactionParties]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[TransactionParties];
+GO
+IF OBJECT_ID(N'[dbo].[Transactions]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Transactions];
+GO
+IF OBJECT_ID(N'[dbo].[Events]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Events];
+GO
+IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Users];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -47,6 +62,23 @@ CREATE TABLE [dbo].[Transactions] (
 );
 GO
 
+-- Creating table 'Events'
+CREATE TABLE [dbo].[Events] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Amount] float  NOT NULL,
+    [Interval] nvarchar(max)  NOT NULL,
+    [Type] nvarchar(max)  NOT NULL,
+    [Description] nvarchar(max)  NOT NULL,
+    [Date] datetime  NOT NULL
+);
+GO
+
+-- Creating table 'Users'
+CREATE TABLE [dbo].[Users] (
+    [Id] int IDENTITY(1,1) NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -60,6 +92,18 @@ GO
 -- Creating primary key on [Id] in table 'Transactions'
 ALTER TABLE [dbo].[Transactions]
 ADD CONSTRAINT [PK_Transactions]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Events'
+ALTER TABLE [dbo].[Events]
+ADD CONSTRAINT [PK_Events]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Users'
+ALTER TABLE [dbo].[Users]
+ADD CONSTRAINT [PK_Users]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 

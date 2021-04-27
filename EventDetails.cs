@@ -12,5 +12,9 @@ namespace CW_02
         public string Description { get; set; }
         public string Type { get; set; }
 
+        public String Interval { get; set; }
+
+        public double Amount { get; set; }
+
     }
 }

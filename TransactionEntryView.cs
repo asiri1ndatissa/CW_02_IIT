@@ -71,7 +71,7 @@ namespace CW_02
             MyDatabaseEntities db = new MyDatabaseEntities();
             TransactionPartyModel transactionPartyModelDetail = new TransactionPartyModel();
             Cursor = Cursors.WaitCursor;
-            var transactionPartyTable = db.TransactionParties;
+            var transactionPartyTable = transactionPartyModelDetail.LoadTransactionPartyDetails();
             foreach (var record in transactionPartyTable)
             {
               
