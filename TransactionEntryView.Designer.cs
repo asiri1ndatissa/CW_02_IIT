@@ -43,10 +43,10 @@ namespace CW_02
             this.btnSubmit = new System.Windows.Forms.Button();
             this.cmbId = new System.Windows.Forms.ComboBox();
             this.dataGridTransactionParty = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contactDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTransactionParty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactDetailsBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -186,17 +186,6 @@ namespace CW_02
             this.dataGridTransactionParty.Size = new System.Drawing.Size(254, 297);
             this.dataGridTransactionParty.TabIndex = 20;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(547, 109);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(173, 18);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "Transaction Party Details";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -212,6 +201,16 @@ namespace CW_02
             // contactDetailsBindingSource
             // 
             this.contactDetailsBindingSource.DataSource = typeof(CW_02.ContactDetails);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(547, 109);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(173, 18);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Transaction Party Details";
             // 
             // TransactionEntryView
             // 

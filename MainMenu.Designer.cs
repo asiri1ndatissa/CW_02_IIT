@@ -113,7 +113,7 @@ namespace CW_02
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 494);
+            this.ClientSize = new System.Drawing.Size(389, 494);
             this.Controls.Add(this.btnWeeklyView);
             this.Controls.Add(this.btnManageEvent);
             this.Controls.Add(this.btnPrediction);

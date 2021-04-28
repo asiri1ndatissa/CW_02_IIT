@@ -26,7 +26,7 @@ namespace CW_02
         TransactionPartyModel transactionPartyModel = new TransactionPartyModel();
    
         
-        private void SubmitTransactionEntry(object sender, EventArgs e)
+        private async void SubmitTransactionEntry(object sender, EventArgs e)
         {
             this.TransactionData = new Transaction();
             this.TransactionData.Date = this.dateTransaction.Value;
@@ -52,18 +52,22 @@ namespace CW_02
             this.dBTransaction.WriteXml(@"transaction.xml");
 
             TransactionModel transactionModel = new TransactionModel();
-            transactionModel.SaveTransaction(this.TransactionData.Date,
+            Cursor = Cursors.WaitCursor;
+
+            await transactionModel.SaveTransactionAsync(this.TransactionData.Date,
                                        this.TransactionData.TransactionPartyId,
                                        this.TransactionData.TransactionType, this.TransactionData.RecurrentType, 
                                        this.TransactionData.Amount);
 
             this.dBTransaction.Reset();
+            Cursor = Cursors.Arrow;
+
             File.Delete(@"transaction.xml");
             MessageBox.Show("Successfully Saved");
             this.Close();
         }
 
-        private void TransactionEntryView_Load(object sender, EventArgs e)
+        private  void TransactionEntryView_Load(object sender, EventArgs e)
         {
             listId = transactionPartyModel.LoadTransactionParty();
             listId.ForEach(i => this.cmbId.Items.Add(i));
@@ -79,11 +83,6 @@ namespace CW_02
                                                         , record.Description, record.Id));
             }
             Cursor = Cursors.Arrow;
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
 
         }
     }

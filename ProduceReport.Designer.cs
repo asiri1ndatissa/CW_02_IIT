@@ -38,10 +38,11 @@ namespace CW_02
             this.btnGenerate = new System.Windows.Forms.Button();
             this.dbTransaction1 = new CW_02.DBTransaction();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxBalance = new System.Windows.Forms.TextBox();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.recurrentTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.transactionDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dbTransaction1)).BeginInit();
@@ -118,13 +119,29 @@ namespace CW_02
             this.dateDataGridViewTextBoxColumn,
             this.typeDataGridViewTextBoxColumn,
             this.idDataGridViewTextBoxColumn,
-            this.recurrentTypeDataGridViewTextBoxColumn,
             this.amountDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.transactionDataBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(79, 189);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(557, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(467, 150);
             this.dataGridView1.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(76, 376);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(112, 16);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Total Balance:";
+            // 
+            // textBoxBalance
+            // 
+            this.textBoxBalance.Location = new System.Drawing.Point(217, 375);
+            this.textBoxBalance.Name = "textBoxBalance";
+            this.textBoxBalance.Size = new System.Drawing.Size(119, 20);
+            this.textBoxBalance.TabIndex = 11;
             // 
             // dateDataGridViewTextBoxColumn
             // 
@@ -144,12 +161,6 @@ namespace CW_02
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             // 
-            // recurrentTypeDataGridViewTextBoxColumn
-            // 
-            this.recurrentTypeDataGridViewTextBoxColumn.DataPropertyName = "RecurrentType";
-            this.recurrentTypeDataGridViewTextBoxColumn.HeaderText = "RecurrentType";
-            this.recurrentTypeDataGridViewTextBoxColumn.Name = "recurrentTypeDataGridViewTextBoxColumn";
-            // 
             // amountDataGridViewTextBoxColumn
             // 
             this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
@@ -165,6 +176,8 @@ namespace CW_02
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBoxBalance);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.dateTimeEndDate);
@@ -192,11 +205,12 @@ namespace CW_02
         private System.Windows.Forms.Button btnGenerate;
         private DBTransaction dbTransaction1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource transactionDataBindingSource;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBoxBalance;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn recurrentTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource transactionDataBindingSource;
     }
 }

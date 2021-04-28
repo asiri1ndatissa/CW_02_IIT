@@ -44,7 +44,7 @@ namespace CW_02
             this.dbTansaction.WriteXml(@"event.xml");
 
             EventDataModel eventDataModel = new EventDataModel();
-            eventDataModel.SaveEvent(this.dateTimeEventDate.Value, this.comboBoxInterval.Text, this.comboBoxType.Text,
+             eventDataModel.SaveEvent(this.dateTimeEventDate.Value, this.comboBoxInterval.Text, this.comboBoxType.Text,
                 this.textBoxDescription.Text, Convert.ToDouble(this.textBoxAmount.Text));
 
             this.dbTansaction.Reset();

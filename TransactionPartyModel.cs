@@ -9,6 +9,7 @@ using System.IO;
 using System.Data.OleDb;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
+using System.Threading.Tasks;
 
 namespace CW_02
 {
@@ -16,35 +17,40 @@ namespace CW_02
     {
         public void SaveTransactionParty(DateTime date, String name, String description)
         {
-           
-            TransactionParty contact = new TransactionParty();
-            contact.Description = description;
-            contact.JoiningDate = date;
-            contact.TransactionPartyName = name;
-            MyDatabaseEntities db = new MyDatabaseEntities();
 
-            try
+            Task t = Task.Run(() =>
             {
-                db.TransactionParties.Add(contact);
-                db.SaveChanges();
+                TransactionParty contact = new TransactionParty();
+                contact.Description = description;
+                contact.JoiningDate = date;
+                contact.TransactionPartyName = name;
+                MyDatabaseEntities db = new MyDatabaseEntities();
 
-            }
-            catch (DbEntityValidationException ex)
-            {
-                // Retrieve the error messages as a list of strings.
-                var errorMessages = ex.EntityValidationErrors
-                .SelectMany(x => x.ValidationErrors)
-                .Select(x => x.ErrorMessage);
+                try
+                {
+                    db.TransactionParties.Add(contact);
+                    db.SaveChanges();
 
-                // Join the list to a single string.
-                var fullErrorMessage = string.Join("; ", errorMessages);
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    // Retrieve the error messages as a list of strings.
+                    var errorMessages = ex.EntityValidationErrors
+                    .SelectMany(x => x.ValidationErrors)
+                    .Select(x => x.ErrorMessage);
 
-                // Combine the original exception message with the new one.
-                var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+                    // Join the list to a single string.
+                    var fullErrorMessage = string.Join("; ", errorMessages);
 
-                // Throw a new DbEntityValidationException with the improved exception message.
-                throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
-            }
+                    // Combine the original exception message with the new one.
+                    var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+
+                    // Throw a new DbEntityValidationException with the improved exception message.
+                    throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
+                }
+
+            });
+            t.Wait();
            
 
         }

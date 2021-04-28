@@ -12,20 +12,23 @@ namespace CW_02
 {
     public partial class ProduceFinancialStatus : Form
     {
+        
         public ProduceFinancialStatus()
         {
             InitializeComponent();
         }
 
-        private void GeneratePrediction(object sender, EventArgs e)
+        private async void GeneratePrediction(object sender, EventArgs e)
         {
 
             TransactionModel transactionModel = new TransactionModel();
-            var transactionTable = transactionModel.LoadTransaction();
+            Cursor = Cursors.WaitCursor;
+         
+            var transactionTable =await Task.Run(() => transactionModel.LoadTransaction());
             List<TransactionData> transactionList = new List<TransactionData>();
             List<double> expenseList = new List<double>();
             List<double> incomeList = new List<double>();
-            int incomeCounter = 0;
+            
 
             DateTime currentDate = DateTime.UtcNow.Date;
             DateTime predictionDate = dateTimePrediction.Value.Date;
@@ -57,6 +60,7 @@ namespace CW_02
 
             this.textBoxIncome.Text = simpleMovingAverageIncome.ToString();
             this.textBoxExpense.Text = simpleMovingAverageExpense.ToString();
+            Cursor = Cursors.Arrow;
         }
     }
 }

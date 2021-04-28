@@ -8,7 +8,7 @@ namespace CW_02
 {
   public class TransactionModel
     {
-        public void SaveTransaction(DateTime date, int transactionId, String transactionType,
+        public async Task SaveTransactionAsync(DateTime date, int transactionId, String transactionType,
                                      String recurrentType, double amount)
         {
             Transaction transaction = new Transaction();
@@ -19,7 +19,7 @@ namespace CW_02
             transaction.TransactionType = transactionType;
 
             MyDatabaseEntities db = new MyDatabaseEntities();
-            db.Transactions.Add(transaction);
+         await Task.Run(() => db.Transactions.Add(transaction));
             db.SaveChanges();
 
         }
@@ -30,23 +30,23 @@ namespace CW_02
             return db.Transactions;
         }
 
-        public void DeleteTransaction(int id)
+        public async Task DeleteTransactionAsync(int id)
         {
             Transaction transaction = new Transaction();
             MyDatabaseEntities db = new MyDatabaseEntities();
-            var transactionItem = db.Transactions.Find(id);
+            var transactionItem = await Task.Run(() => db.Transactions.Find(id));
             db.Transactions.Remove(transactionItem);
             db.SaveChanges();
         }
 
-        public void UpdateTransaction(int id, double amount)
+        public  async Task UpdateTransactionAsync(int id, double amount)
         {
             Transaction transaction = new Transaction();
             transaction.TransactionPartyId = id;
             transaction.Amount = amount;
 
             MyDatabaseEntities db = new MyDatabaseEntities();
-            var transactionItem = db.Transactions.Find(id);
+            var transactionItem =await Task.Run(() => db.Transactions.Find(id));
             transactionItem.Amount = transaction.Amount;
             db.SaveChanges();
         }

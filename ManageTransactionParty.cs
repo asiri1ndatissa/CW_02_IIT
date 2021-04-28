@@ -47,6 +47,7 @@ namespace CW_02
                     this.contactDetailsBindingSource.Add(new ContactDetails(record.JoiningDate,record.TransactionPartyName
                                                         ,record.Description,record.Id));
             }
+            
             Cursor = Cursors.Arrow;
 
         }

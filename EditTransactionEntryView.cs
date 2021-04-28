@@ -20,7 +20,7 @@ namespace CW_02
 
        
 
-        private void SearchByDate(object sender, EventArgs e)
+        private async void SearchByDate(object sender, EventArgs e)
 
         {
             string theDate = dateTimePicker.Value.ToString("yyyy-MM-dd");
@@ -31,10 +31,9 @@ namespace CW_02
             this.dataGridView1.Rows.Clear();
             Cursor = Cursors.WaitCursor;
 
-            MyDatabaseEntities db = new MyDatabaseEntities();
-            TransactionModel transaction = new TransactionModel();
+            TransactionModel transaction =await Task.Run(()=> new TransactionModel());
 
-            var transactionTable = db.Transactions;
+            var transactionTable = transaction.LoadTransaction();
            foreach(var record in transactionTable)
             {
                 if (this.dateTimePicker.Value.Date == record.Date.Date)
@@ -48,13 +47,13 @@ namespace CW_02
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if(dataGridView1.Columns[e.ColumnIndex].Name == "DeleteRow")
             {
                 int deleteId = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
                 TransactionModel transactionModel = new TransactionModel();
-                transactionModel.DeleteTransaction(deleteId);
+              await transactionModel.DeleteTransactionAsync(deleteId);
                 transactionDataBindingSource.RemoveCurrent();
             }
             else if (dataGridView1.Columns[e.ColumnIndex].Name == "Update")
@@ -63,7 +62,7 @@ namespace CW_02
                 int selectId = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
                 double updatedAmount = (double)dataGridView1.Rows[e.RowIndex].Cells[4].Value;
                 TransactionModel transactionModel = new TransactionModel();
-                transactionModel.UpdateTransaction(selectId, updatedAmount);
+              await transactionModel.UpdateTransactionAsync(selectId, updatedAmount);
 
                 MessageBox.Show("Successfully Updated");
                 this.Close();
